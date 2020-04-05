@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragment.RequestDetailsFragment">
+
+    <data>
+
+        <variable
+            name="obj"
+            type="com.hackorona.sending.data.RequestInfo" />
+
+        <variable
+            name="viewmodel"
+            type="com.hackorona.sending.viewmodel.RequestDetailsViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/request_item_category_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:drawableStart="@drawable/ic_help"
+                android:drawablePadding="4dp"
+                android:text="@{obj.category.text}"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="17sp"
+                tools:text="Buy &amp; Deliver" />
+
+            <TextView
+                android:id="@+id/request_item_time_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:drawableStart="@drawable/ic_time"
+                android:drawablePadding="4dp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@{obj.relativeTime}"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="17sp"
+                tools:text="5 minutes ago" />
+
+            <TextView
+                android:id="@+id/request_item_location_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:drawableStart="@drawable/ic_location"
+                android:drawablePadding="4dp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@{obj.location}"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="17sp"
+                tools:text="Somewhere around here" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="4dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/map" />
+
+            <TextView
+                android:id="@+id/request_item_description_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:drawableStart="@drawable/ic_description"
+                android:drawablePadding="4dp"
+                android:text="@{obj.description}"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="17sp"
+                tools:text="Lorem ipsum" />
+
+            <TextView
+                android:id="@+id/request_item_priority_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:drawableStart="@drawable/ic_priority"
+                android:drawablePadding="4dp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@{obj.priority.text}"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="17sp"
+                tools:text="High" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/accept_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:text="Accept"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/delete_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1"
+                    android:background="#F44336"
+                    android:text="Delete"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

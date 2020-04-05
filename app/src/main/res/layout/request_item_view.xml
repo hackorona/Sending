@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="obj"
+            type="com.hackorona.sending.data.RequestInfo" />
+
+        <variable
+            name="viewModel"
+            type="com.hackorona.sending.viewmodel.RequestListViewModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onItemClick(obj)}">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/request_item_title_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="12dp"
+                android:text="@{obj.title}"
+                android:textColor="@android:color/primary_text_light"
+                android:textSize="@dimen/cardview_title_size"
+                android:textStyle="bold"
+                tools:text="Buy me some groceries" />
+
+            <TextView
+                android:id="@+id/request_item_category_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:drawableStart="@drawable/ic_help"
+                android:drawablePadding="4dp"
+                android:text="@{obj.category.text}"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="17sp"
+                tools:text="Buy &amp; Deliver" />
+
+            <TextView
+                android:id="@+id/request_item_time_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:drawableStart="@drawable/ic_time"
+                android:drawablePadding="4dp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@{obj.relativeTime}"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="17sp"
+                tools:text="5 minutes ago" />
+
+            <TextView
+                android:id="@+id/request_item_location_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:drawableStart="@drawable/ic_location"
+                android:drawablePadding="4dp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@{obj.location}"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="17sp"
+                tools:text="Somewhere around here" />
+
+            <TextView
+                android:id="@+id/request_item_priority_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_priority"
+                android:drawablePadding="4dp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@{obj.priority.text}"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="17sp"
+                tools:text="High" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
